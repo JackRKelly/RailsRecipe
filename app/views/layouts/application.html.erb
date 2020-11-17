@@ -8,10 +8,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= javascript_pack_tag 'Index.tsx' %>
   </head>
 
   <body>
+    <div id="root"></div>
     <%= yield %>
+    <%= javascript_pack_tag 'index' %>
   </body>
 </html>
