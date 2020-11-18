@@ -1,7 +1,7 @@
 import * as React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "../pages/Home";
-import Test from "../pages/Test";
+import Recipe from "../pages/Recipe";
 
 const App: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const App: React.FC = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/test">test</Link>
+              <Link to="/recipe">Recipe</Link>
             </li>
           </ul>
         </nav>
@@ -22,8 +22,11 @@ const App: React.FC = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/test">
-            <Test />
+          <Route exact path="/recipe">
+            <Recipe />
+          </Route>
+          <Route exact path="/recipe/view/:id">
+            <Recipe />
           </Route>
         </Switch>
       </div>
