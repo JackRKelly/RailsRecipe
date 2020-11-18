@@ -1,7 +1,7 @@
 import * as React from "react";
-import Component from "../components/Component";
 import { useEffect, useState } from "react";
 import { IRecipe } from "../../models/recipe";
+import "../../assets/stylesheets/recipe.scss";
 
 const Recipe: React.FC = () => {
   let [recipeList, setRecipeList] = useState<Array<IRecipe>>();

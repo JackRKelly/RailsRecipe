@@ -1,5 +1,6 @@
 import * as React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "../../assets/stylesheets/index.scss";
 import Home from "../pages/Home";
 import Recipe from "../pages/Recipe";
 
