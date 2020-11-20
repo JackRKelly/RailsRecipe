@@ -2,9 +2,9 @@ import * as React from "react";
 
 const Home: React.FC = () => {
   return (
-    <div className="home">
+    <main id="home" className="page">
       <h1>Home Page</h1>
-    </div>
+    </main>
   );
 };
 

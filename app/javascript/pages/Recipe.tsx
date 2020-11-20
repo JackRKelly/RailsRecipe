@@ -24,7 +24,7 @@ const Recipe: React.FC = () => {
   }, [recipeList]);
 
   return (
-    <div className="recipe">
+    <main id="recipe" className="page">
       <h1>Recently Posted Recipes</h1>
       {recipeList?.map((recipe, index) => (
         <a href={`/recipe/view/${recipe.id}`} key={index}>
@@ -34,7 +34,7 @@ const Recipe: React.FC = () => {
           </div>
         </a>
       ))}
-    </div>
+    </main>
   );
 };
 

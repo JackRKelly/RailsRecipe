@@ -7,30 +7,28 @@ import Recipe from "../pages/Recipe";
 const App: React.FC = () => {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/recipe">Recipe</Link>
-            </li>
-          </ul>
-        </nav>
+      <nav id="navigation">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/recipe">Recipe</Link>
+          </li>
+        </ul>
+      </nav>
 
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/recipe">
-            <Recipe />
-          </Route>
-          <Route exact path="/recipe/view/:id">
-            <Recipe />
-          </Route>
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/recipe">
+          <Recipe />
+        </Route>
+        <Route exact path="/recipe/view/:id">
+          <Recipe />
+        </Route>
+      </Switch>
     </Router>
   );
 };

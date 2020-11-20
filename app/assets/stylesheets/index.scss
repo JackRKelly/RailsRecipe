@@ -6,6 +6,10 @@
 
 body {
   margin: 0;
+  #root {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 nav {
@@ -49,4 +53,8 @@ nav {
       }
     }
   }
+}
+
+main.page {
+  @include width;
 }
