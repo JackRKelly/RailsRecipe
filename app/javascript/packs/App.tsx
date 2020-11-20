@@ -1,12 +1,15 @@
 import * as React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "../../assets/stylesheets/index.scss";
+import GlobalStyle from "../components/GlobalStyle";
 import Home from "../pages/Home";
 import Recipe from "../pages/Recipe";
+import RecipeView from "../pages/RecipeView";
 
 const App: React.FC = () => {
   return (
     <Router>
+      <GlobalStyle />
+
       <nav id="navigation">
         <ul>
           <li>
@@ -26,7 +29,7 @@ const App: React.FC = () => {
           <Recipe />
         </Route>
         <Route exact path="/recipe/view/:id">
-          <Recipe />
+          <RecipeView />
         </Route>
       </Switch>
     </Router>

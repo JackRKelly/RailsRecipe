@@ -1,10 +1,12 @@
 import * as React from "react";
+import PageWrapper from "../components/PageWrapper";
+import { H1 } from "../components/Text";
 
 const Home: React.FC = () => {
   return (
-    <main id="home" className="page">
-      <h1>Home Page</h1>
-    </main>
+    <PageWrapper id="home">
+      <H1>Hello</H1>
+    </PageWrapper>
   );
 };
 

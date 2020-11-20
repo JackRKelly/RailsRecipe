@@ -2,6 +2,8 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { IRecipe } from "../../models/recipe";
 import "../../assets/stylesheets/recipe.scss";
+import PageWrapper from "../components/PageWrapper";
+import { H1 } from "../components/Text";
 
 const Recipe: React.FC = () => {
   let [recipeList, setRecipeList] = useState<Array<IRecipe>>();
@@ -24,8 +26,9 @@ const Recipe: React.FC = () => {
   }, [recipeList]);
 
   return (
-    <main id="recipe" className="page">
-      <h1>Recently Posted Recipes</h1>
+    <PageWrapper id="recipe">
+      <H1>Recently Posted Recipes</H1>
+
       {recipeList?.map((recipe, index) => (
         <a href={`/recipe/view/${recipe.id}`} key={index}>
           <div className="recipe-card">
@@ -34,7 +37,7 @@ const Recipe: React.FC = () => {
           </div>
         </a>
       ))}
-    </main>
+    </PageWrapper>
   );
 };
 
