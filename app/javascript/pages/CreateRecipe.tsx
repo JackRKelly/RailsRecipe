@@ -90,14 +90,10 @@ const IterableLabelWrapper = styled.div`
 const RecipeView: React.FC = () => {
   let [recipe, setRecipe] = useState<IRecipe>();
 
-  const [name, setName] = useState("name");
-  const [image, setImage] = useState("image");
-  const [instructions, setinstructions] = useState(["instructions"]);
-  const [ingredients, setIngredients] = useState(["ingredient", "test"]);
-
-  useEffect(() => {
-    console.log(recipe);
-  }, [recipe]);
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [instructions, setinstructions] = useState([""]);
+  const [ingredients, setIngredients] = useState([""]);
 
   return (
     <Page>
@@ -113,8 +109,6 @@ const RecipeView: React.FC = () => {
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content");
 
-              console.log({ name, image, instructions, ingredients });
-
               fetch("/api/v1/recipes/create", {
                 method: "POST",
                 headers: {
@@ -124,7 +118,7 @@ const RecipeView: React.FC = () => {
                 credentials: "same-origin",
                 body: JSON.stringify({
                   name,
-                  image,
+                  image: image.length === 0 ? undefined : image,
                   instructions,
                   ingredients,
                 }),
@@ -137,6 +131,7 @@ const RecipeView: React.FC = () => {
               <InputWrapper>
                 <Label>Name</Label>
                 <Input
+                  required
                   placeholder="Grilled Cheese"
                   value={name}
                   onChange={(e) => {
@@ -147,6 +142,7 @@ const RecipeView: React.FC = () => {
               <InputWrapper>
                 <Label>Image</Label>
                 <Input
+                  required
                   placeholder="https://google.com/img/grilledcheese.jpg"
                   value={image}
                   onChange={(e) => {
@@ -170,6 +166,7 @@ const RecipeView: React.FC = () => {
                 {ingredients.map((ingredient, index) => (
                   <IterableInputWrapper key={index}>
                     <IterableInput
+                      required
                       key={`ingredient-${index}`}
                       placeholder="Cheese"
                       value={ingredient}
@@ -222,6 +219,7 @@ const RecipeView: React.FC = () => {
                 {instructions.map((step, index) => (
                   <IterableInputWrapper key={index}>
                     <IterableInput
+                      required
                       key={`instructions-${index}`}
                       placeholder="Melt Cheese"
                       value={step}
