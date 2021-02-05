@@ -1,12 +1,24 @@
 import * as React from "react";
-import PageWrapper from "../components/PageWrapper";
-import { H1 } from "../components/Text";
+import {
+  Content,
+  Page,
+  Section,
+  SectionHeader,
+  SectionText,
+} from "../components/Styled";
 
 const Home: React.FC = () => {
   return (
-    <PageWrapper id="home">
-      <H1>Hello</H1>
-    </PageWrapper>
+    <Page>
+      <Section>
+        <Content>
+          <SectionHeader>Hello</SectionHeader>
+          <SectionText>
+            Recipe app built with ruby on rails and react typescript
+          </SectionText>
+        </Content>
+      </Section>
+    </Page>
   );
 };
 

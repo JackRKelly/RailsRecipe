@@ -1,8 +1,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import { IRecipe, IRouteParameter } from "../../models/recipe";
-import PageWrapper from "../components/PageWrapper";
-import { H1 } from "../components/Text";
+import { Content } from "../components/Styled";
 import { useParams } from "react-router-dom";
 
 const RecipeView: React.FC = () => {
@@ -28,8 +27,8 @@ const RecipeView: React.FC = () => {
   }, [recipe]);
 
   return (
-    <PageWrapper id="recipe">
-      <H1>Viewing Recipe {recipe ? recipe.name : `#${id}`}</H1>
+    <Content id="recipe">
+      <h1>Viewing Recipe {recipe ? recipe.name : `#${id}`}</h1>
       <div className="recipe">
         <p>Ingredients</p>
         <ul>
@@ -45,7 +44,7 @@ const RecipeView: React.FC = () => {
         </ol>
         <img src={recipe?.image} alt={recipe?.name} />
       </div>
-    </PageWrapper>
+    </Content>
   );
 };
 

@@ -1,8 +1,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import { IRecipe } from "../../models/recipe";
-import PageWrapper from "../components/PageWrapper";
-import { H1 } from "../components/Text";
+import { Content } from "../components/Styled";
 
 const Recipe: React.FC = () => {
   let [recipeList, setRecipeList] = useState<Array<IRecipe>>();
@@ -25,8 +24,8 @@ const Recipe: React.FC = () => {
   }, [recipeList]);
 
   return (
-    <PageWrapper id="recipe">
-      <H1>Recently Posted Recipes</H1>
+    <Content id="recipe">
+      <h1>Recently Posted Recipes</h1>
 
       {recipeList?.map((recipe, index) => (
         <a href={`/recipe/view/${recipe.id}`} key={index}>
@@ -36,7 +35,7 @@ const Recipe: React.FC = () => {
           </div>
         </a>
       ))}
-    </PageWrapper>
+    </Content>
   );
 };
 
