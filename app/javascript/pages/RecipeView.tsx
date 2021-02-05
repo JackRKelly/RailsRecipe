@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import { IRecipe, IRouteParameter } from "../../models/recipe";
-import "../../assets/stylesheets/recipe.scss";
 import PageWrapper from "../components/PageWrapper";
 import { H1 } from "../components/Text";
 import { useParams } from "react-router-dom";
