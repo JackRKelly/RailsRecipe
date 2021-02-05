@@ -46,9 +46,9 @@ const RecipeView: React.FC = () => {
                 <li key={index}>{item}</li>
               ))}
             </ul>
-            <p>Instructions</p>
+            <p>instructions</p>
             <ol>
-              {recipe?.instruction?.map((step, index) => (
+              {recipe?.instructions?.map((step, index) => (
                 <li key={index}>{step}</li>
               ))}
             </ol>

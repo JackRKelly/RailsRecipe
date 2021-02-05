@@ -13,7 +13,7 @@ import {
 const RecipeCardWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-gap: 64px 32px;
+  grid-gap: 1.5em 1.5em;
 `;
 
 const RecipeCard = styled.a`
@@ -79,12 +79,12 @@ const Recipe: React.FC = () => {
       <Section>
         <Content>
           <SectionHeader>Recently Posted Recipes</SectionHeader>
-          <RecipeHeaderDescription>
+          <SectionText>
             Contribute by{" "}
             <RecipeHeaderLink href="/recipe/create">
               creating a recipe
             </RecipeHeaderLink>
-          </RecipeHeaderDescription>
+          </SectionText>
           <RecipeCardWrapper>
             {recipeList?.map((recipe, index) => (
               <RecipeCard href={`/recipe/view/${recipe.id}`} key={index}>
@@ -93,8 +93,8 @@ const Recipe: React.FC = () => {
                   <RecipeDescription>
                     {recipe.ingredients.length} Ingredient
                     {recipe.ingredients.length > 1 ? "s" : ""},{" "}
-                    {recipe.instruction.length} Step
-                    {recipe.instruction.length > 1 ? "s" : ""}
+                    {recipe.instructions.length} Step
+                    {recipe.instructions.length > 1 ? "s" : ""}
                   </RecipeDescription>
 
                   <RecipeThumbnail src={recipe.image} />

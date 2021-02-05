@@ -26,7 +26,7 @@ export const SectionHeader = styled.h2`
 `;
 
 export const SectionText = styled.p`
-  margin: 0 auto;
+  margin: 0 auto 1em;
   font-size: 1.15em;
   max-width: 1200px;
   text-align: center;
