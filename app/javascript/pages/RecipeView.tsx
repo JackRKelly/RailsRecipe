@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import { IRecipe, IRouteParameter } from "../../models/recipe";
-import { Content } from "../components/Styled";
+import { Content, Page, Section } from "../components/Styled";
 import { useParams } from "react-router-dom";
 
 const RecipeView: React.FC = () => {
@@ -27,24 +27,28 @@ const RecipeView: React.FC = () => {
   }, [recipe]);
 
   return (
-    <Content id="recipe">
-      <h1>Viewing Recipe {recipe ? recipe.name : `#${id}`}</h1>
-      <div className="recipe">
-        <p>Ingredients</p>
-        <ul>
-          {recipe?.ingredients?.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-        <p>Instructions</p>
-        <ol>
-          {recipe?.instruction?.map((step, index) => (
-            <li key={index}>{step}</li>
-          ))}
-        </ol>
-        <img src={recipe?.image} alt={recipe?.name} />
-      </div>
-    </Content>
+    <Page>
+      <Section>
+        <Content id="recipe">
+          <h1>Viewing Recipe {recipe ? recipe.name : `#${id}`}</h1>
+          <div className="recipe">
+            <p>Ingredients</p>
+            <ul>
+              {recipe?.ingredients?.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+            <p>Instructions</p>
+            <ol>
+              {recipe?.instruction?.map((step, index) => (
+                <li key={index}>{step}</li>
+              ))}
+            </ol>
+            <img src={recipe?.image} alt={recipe?.name} />
+          </div>
+        </Content>
+      </Section>
+    </Page>
   );
 };
 
