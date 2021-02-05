@@ -1,8 +1,15 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import { IRecipe, IRouteParameter } from "../../models/recipe";
-import { Content, Page, Section } from "../components/Styled";
+import { Content, Page, Section, SectionHeader } from "../components/Styled";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
+
+const ImageBanner = styled.img`
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+`;
 
 const RecipeView: React.FC = () => {
   let [recipe, setRecipe] = useState<IRecipe>();
@@ -28,9 +35,10 @@ const RecipeView: React.FC = () => {
 
   return (
     <Page>
+      <ImageBanner src={recipe?.image} alt={recipe?.name} />
       <Section>
         <Content id="recipe">
-          <h1>Viewing Recipe {recipe ? recipe.name : `#${id}`}</h1>
+          <SectionHeader>{recipe ? recipe.name : `#${id}`}</SectionHeader>
           <div className="recipe">
             <p>Ingredients</p>
             <ul>
@@ -44,7 +52,6 @@ const RecipeView: React.FC = () => {
                 <li key={index}>{step}</li>
               ))}
             </ol>
-            <img src={recipe?.image} alt={recipe?.name} />
           </div>
         </Content>
       </Section>
