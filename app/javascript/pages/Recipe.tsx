@@ -70,10 +70,6 @@ const Recipe: React.FC = () => {
       });
   }, []);
 
-  useEffect(() => {
-    console.log(recipeList);
-  }, [recipeList]);
-
   return (
     <Page>
       <Section>

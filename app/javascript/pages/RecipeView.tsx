@@ -29,10 +29,6 @@ const RecipeView: React.FC = () => {
       });
   }, []);
 
-  useEffect(() => {
-    console.log(recipe);
-  }, [recipe]);
-
   return (
     <Page>
       <ImageBanner src={recipe?.image} alt={recipe?.name} />
