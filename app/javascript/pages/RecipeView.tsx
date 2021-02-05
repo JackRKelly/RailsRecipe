@@ -12,7 +12,7 @@ const RecipeView: React.FC = () => {
   let { id } = useParams<IRouteParameter>();
 
   useEffect(() => {
-    fetch("/api/v1/recipes/show/1")
+    fetch(`/api/v1/recipes/show/${id}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
