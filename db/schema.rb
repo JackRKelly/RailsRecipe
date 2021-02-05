@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_11_18_005932) do
   create_table "recipes", force: :cascade do |t|
     t.string "name", null: false
     t.text "ingredients", null: false, array: true
-    t.text "instruction", null: false, array: true
+    t.text "instructions", null: false, array: true
     t.string "image", default: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&w=1000&q=80"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
