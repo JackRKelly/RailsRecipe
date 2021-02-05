@@ -12,7 +12,7 @@ const Home: React.FC = () => {
     <Page>
       <Section>
         <Content>
-          <SectionHeader>Hello</SectionHeader>
+          <SectionHeader>Rails Recipe</SectionHeader>
           <SectionText>
             Recipe app built with ruby on rails and react typescript
           </SectionText>

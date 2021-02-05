@@ -15,7 +15,7 @@ export const Content = styled.div`
 
 export const SectionHeader = styled.h2`
   margin: 0 auto 0.5em;
-  font-size: 3em;
+  font-size: 2.25em;
   max-width: 1200px;
   text-align: center;
   line-height: 1;

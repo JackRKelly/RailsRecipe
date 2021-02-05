@@ -36,7 +36,7 @@ body {
 }
 
 nav {
-  background-color: white;
+  background-color: var(--white);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.16);
   position: fixed;
   top: 0;
@@ -57,7 +57,6 @@ nav {
     margin: auto;
     display: flex;
     font-weight: bold;
-    text-transform: uppercase;
     flex-direction: row;
     font-size: 20px;
     justify-content: space-between;
