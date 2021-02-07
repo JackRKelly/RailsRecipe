@@ -8,7 +8,6 @@ import { AllRecipes } from "../pages/AllRecipes";
 import { RecipeView } from "../pages/RecipeView";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { EditRecipe } from "../pages/EditRecipe";
 
 const App: React.FC = () => {
   return (
@@ -30,9 +29,6 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/recipe/view/:id">
             <RecipeView />
-          </Route>
-          <Route exact path="/recipe/edit/:id">
-            <EditRecipe />
           </Route>
         </Switch>
       </Router>
