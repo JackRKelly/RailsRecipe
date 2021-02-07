@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { IRecipe } from "../../models/recipe";
+import { Recipe } from "../../models/recipe";
 import {
   Content,
   Page,
@@ -28,6 +28,7 @@ const RecipeThumbnail = styled.img`
   width: 100%;
   max-height: 230px;
   object-fit: cover;
+  border-radius: 3px;
 `;
 
 const RecipeHeader = styled.h3`
@@ -54,8 +55,8 @@ const RecipeHeaderLink = styled.a`
   color: var(--primary);
 `;
 
-const Recipe: React.FC = () => {
-  let [recipeList, setRecipeList] = useState<Array<IRecipe>>();
+const RecipeApp: React.FC = () => {
+  let [recipeList, setRecipeList] = useState<Array<Recipe>>();
 
   useEffect(() => {
     fetch("/api/v1/recipes/index")
@@ -104,4 +105,4 @@ const Recipe: React.FC = () => {
   );
 };
 
-export default Recipe;
+export default RecipeApp;

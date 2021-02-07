@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { IRecipe, IRouteParameter } from "../../models/recipe";
+import { Recipe, RouteParameter } from "../../models/recipe";
 import {
   Content,
   Page,
@@ -87,9 +87,12 @@ const IterableLabelWrapper = styled.div`
   margin-bottom: 15px;
 `;
 
-const RecipeView: React.FC = () => {
-  let [recipe, setRecipe] = useState<IRecipe>();
+const CreateButton = styled(IterableButton)`
+  font-size: 1em;
+  margin-top: 0.5em;
+`;
 
+const RecipeView: React.FC = () => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [instructions, setinstructions] = useState([""]);
@@ -123,7 +126,11 @@ const RecipeView: React.FC = () => {
                   ingredients,
                 }),
               }).then((res) => {
-                console.log(res);
+                if (res.status === 200) {
+                  res.json().then((recipe: Recipe) => {
+                    location.href = `/recipe/view/${recipe.id}`;
+                  });
+                }
               });
             }}
           >
@@ -182,13 +189,17 @@ const RecipeView: React.FC = () => {
                     />
                     <IterableAction
                       onClick={() => {
-                        setIngredients((old) => {
-                          let array = Array.from(old);
+                        if (!(ingredients.length <= 1)) {
+                          setIngredients((old) => {
+                            let array = Array.from(old);
 
-                          array.splice(index, 1);
+                            array.splice(index, 1);
 
-                          return array;
-                        });
+                            return array;
+                          });
+                        } else {
+                          alert("Must have 1 ingredient.");
+                        }
                       }}
                     >
                       <IterableSVG
@@ -205,14 +216,14 @@ const RecipeView: React.FC = () => {
               </InputWrapper>
               <InputWrapper>
                 <IterableLabelWrapper>
-                  <IterableLabel>instructions</IterableLabel>
+                  <IterableLabel>Instructions</IterableLabel>
                   <IterableButton
                     type="button"
                     onClick={() => {
                       setinstructions((old) => [...old, ""]);
                     }}
                   >
-                    Add new instructions
+                    Add new instruction
                   </IterableButton>
                 </IterableLabelWrapper>
 
@@ -235,13 +246,17 @@ const RecipeView: React.FC = () => {
                     />
                     <IterableAction
                       onClick={() => {
-                        setinstructions((old) => {
-                          let array = Array.from(old);
+                        if (!(instructions.length <= 1)) {
+                          setinstructions((old) => {
+                            let array = Array.from(old);
 
-                          array.splice(index, 1);
+                            array.splice(index, 1);
 
-                          return array;
-                        });
+                            return array;
+                          });
+                        } else {
+                          alert("Must have 1 instruction.");
+                        }
                       }}
                     >
                       <IterableSVG
@@ -257,7 +272,7 @@ const RecipeView: React.FC = () => {
                 ))}
               </InputWrapper>
             </InputGrid>
-            <button type="submit">Create Recipe</button>
+            <CreateButton type="submit">Create Recipe</CreateButton>
           </CreateForm>
         </Content>
       </Section>

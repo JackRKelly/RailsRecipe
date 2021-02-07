@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { IRecipe, IRouteParameter } from "../../models/recipe";
+import { Recipe, RouteParameter } from "../../models/recipe";
 import { Content, Page, Section, SectionHeader } from "../components/Styled";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -12,9 +12,9 @@ const ImageBanner = styled.img`
 `;
 
 const RecipeView: React.FC = () => {
-  let [recipe, setRecipe] = useState<IRecipe>();
+  let [recipe, setRecipe] = useState<Recipe>();
 
-  let { id } = useParams<IRouteParameter>();
+  let { id } = useParams<RouteParameter>();
 
   useEffect(() => {
     fetch(`/api/v1/recipes/show/${id}`)
@@ -34,7 +34,9 @@ const RecipeView: React.FC = () => {
       <ImageBanner src={recipe?.image} alt={recipe?.name} />
       <Section>
         <Content id="recipe">
-          <SectionHeader>{recipe ? recipe.name : `#${id}`}</SectionHeader>
+          <SectionHeader>
+            {recipe ? recipe.name : `Loading Recipe #${id}`}
+          </SectionHeader>
           <div className="recipe">
             <p>Ingredients</p>
             <ul>
