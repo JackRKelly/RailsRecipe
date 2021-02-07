@@ -2,7 +2,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { Recipe, RouteParameter } from "../../models/recipe";
 import { Content, Page, Section, SectionHeader } from "../components/Styled";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { toast } from "react-toastify";
 import ReactTooltip from "react-tooltip";
@@ -51,10 +51,6 @@ const ActionBase = styled.a`
 
 const CopyToClipboard = styled(ActionBase)`
   padding-left: 15px;
-`;
-const EditRecipe = styled(Link)`
-  padding: 0 5px;
-  cursor: pointer;
 `;
 const DeleteRecipe = styled(ActionBase)``;
 
@@ -108,19 +104,6 @@ export const RecipeView: React.FC = () => {
                     <path d="M6.188 8.719c.439-.439.926-.801 1.444-1.087 2.887-1.591 6.589-.745 8.445 2.069l-2.246 2.245c-.644-1.469-2.243-2.305-3.834-1.949-.599.134-1.168.433-1.633.898l-4.304 4.306c-1.307 1.307-1.307 3.433 0 4.74 1.307 1.307 3.433 1.307 4.74 0l1.327-1.327c1.207.479 2.501.67 3.779.575l-2.929 2.929c-2.511 2.511-6.582 2.511-9.093 0s-2.511-6.582 0-9.093l4.304-4.306zm6.836-6.836l-2.929 2.929c1.277-.096 2.572.096 3.779.574l1.326-1.326c1.307-1.307 3.433-1.307 4.74 0 1.307 1.307 1.307 3.433 0 4.74l-4.305 4.305c-1.311 1.311-3.44 1.3-4.74 0-.303-.303-.564-.68-.727-1.051l-2.246 2.245c.236.358.481.667.796.982.812.812 1.846 1.417 3.036 1.704 1.542.371 3.194.166 4.613-.617.518-.286 1.005-.648 1.444-1.087l4.304-4.305c2.512-2.511 2.512-6.582.001-9.093-2.511-2.51-6.581-2.51-9.092 0z" />
                   </StyledSVG>
                 </CopyToClipboard>
-                <EditRecipe
-                  to={`/recipe/edit/${id}`}
-                  data-tip="Edit this recipe"
-                >
-                  <StyledSVG
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M18.363 8.464l1.433 1.431-12.67 12.669-7.125 1.436 1.439-7.127 12.665-12.668 1.431 1.431-12.255 12.224-.726 3.584 3.584-.723 12.224-12.257zm-.056-8.464l-2.815 2.817 5.691 5.692 2.817-2.821-5.693-5.688zm-12.318 18.718l11.313-11.316-.705-.707-11.313 11.314.705.709z" />
-                  </StyledSVG>
-                </EditRecipe>
                 <DeleteRecipe
                   data-tip="Delete this recipe"
                   onClick={() => {
@@ -128,14 +111,13 @@ export const RecipeView: React.FC = () => {
                       .querySelector('meta[name="csrf-token"]')
                       .getAttribute("content");
 
-                    fetch("/api/v1/recipes/destroy", {
+                    fetch(`/api/v1/recipes/destroy/${id}`, {
                       method: "DELETE",
                       headers: {
                         "X-CSRF-Token": token,
                       },
                       credentials: "same-origin",
                     }).then(() => {
-                      toast.success("Recipe deleted.");
                       location.href = `/recipes`;
                     });
                   }}

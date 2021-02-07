@@ -27,7 +27,7 @@ const RecipeCard = styled.a`
 
 const RecipeThumbnail = styled.img`
   width: 100%;
-  max-height: 230px;
+  height: 230px;
   object-fit: cover;
   border-radius: 3px;
 `;
