@@ -4,7 +4,7 @@ import { GlobalStyle } from "../components/GlobalStyle";
 import { Navigation } from "../components/Navigation";
 import { CreateRecipe } from "../pages/CreateRecipe";
 import { Home } from "../pages/Home";
-import { AllRecipes } from "../pages/Recipe";
+import { AllRecipes } from "../pages/AllRecipes";
 import { RecipeView } from "../pages/RecipeView";
 
 const App: React.FC = () => {
