@@ -5,7 +5,7 @@ import { Navigation } from "../components/Navigation";
 import { CreateRecipe } from "../pages/CreateRecipe";
 import { Home } from "../pages/Home";
 import { AllRecipes } from "../pages/AllRecipes";
-import { RecipeView } from "../pages/RecipeView";
+import { RecipeView } from "../pages/ViewRecipe";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
