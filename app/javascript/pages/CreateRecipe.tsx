@@ -3,95 +3,25 @@ import { useEffect, useState } from "react";
 import { Recipe, RouteParameter } from "../../models/recipe";
 import {
   Content,
+  CreateButton,
+  CreateForm,
+  Input,
+  InputGrid,
+  InputWrapper,
+  IterableAction,
+  IterableButton,
+  IterableInput,
+  IterableInputWrapper,
+  IterableLabel,
+  IterableLabelWrapper,
+  IterableSVG,
+  Label,
   Page,
   Section,
   SectionHeader,
   SectionText,
 } from "../components/Styled";
-
-import styled from "styled-components";
-import { breakpoint } from "../util";
 import { toast } from "react-toastify";
-
-const CreateForm = styled.form``;
-
-const InputGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1.5em 1.5em;
-  @media (max-width: ${breakpoint.tablet}) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const InputWrapper = styled.div``;
-
-const Label = styled.label`
-  display: block;
-  margin-bottom: 0.5em;
-`;
-
-const Input = styled.input`
-  border: none;
-  width: 100%;
-  border-radius: 4px;
-  font-size: 1em;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.16);
-  padding: 0.5em;
-`;
-
-const IterableInput = styled(Input)``;
-
-const IterableLabel = styled(Label)`
-  margin-bottom: 0;
-`;
-
-const IterableAction = styled.div`
-  position: absolute;
-  right: 10px;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 5;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all ease-in-out 200ms;
-  cursor: pointer;
-`;
-
-const IterableButton = styled.button`
-  border: none;
-  background-color: var(--primary);
-  color: var(--white);
-  cursor: pointer;
-  border-radius: 4px;
-  padding: 0.5em 0.5em;
-  font-size: 0.8em;
-`;
-
-const IterableSVG = styled.svg`
-  display: block;
-`;
-
-const IterableInputWrapper = styled.div`
-  margin-bottom: 1em;
-  position: relative;
-  &:hover ${IterableAction} {
-    opacity: 1;
-    pointer-events: all;
-  }
-`;
-
-const IterableLabelWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-`;
-
-const CreateButton = styled(IterableButton)`
-  font-size: 1em;
-  margin-top: 0.5em;
-`;
 
 export const CreateRecipe: React.FC = () => {
   const [name, setName] = useState("");
