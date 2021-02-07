@@ -5,6 +5,7 @@ import { Content, Page, Section, SectionHeader } from "../components/Styled";
 import { useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { toast } from "react-toastify";
+import ReactTooltip from "react-tooltip";
 
 const ImageBanner = styled.img`
   width: 100%;
@@ -70,12 +71,14 @@ export const RecipeView: React.FC = () => {
     <Page>
       {recipe ? (
         <>
+          <ReactTooltip />
           <ImageBanner src={recipe?.image} alt={recipe?.name} />
           <Section>
             <Content id="recipe">
               <SectionHeader>
                 {recipe.name}
                 <CopyToClipboard
+                  data-tip="Copy recipe to clipboard"
                   onClick={() => {
                     navigator.clipboard
                       .writeText(window.location.href)
@@ -97,7 +100,6 @@ export const RecipeView: React.FC = () => {
                   </StyledSVG>
                 </CopyToClipboard>
               </SectionHeader>
-
               <div className="recipe">
                 <p>Ingredients</p>
                 <ul>
