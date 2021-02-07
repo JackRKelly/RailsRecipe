@@ -22,6 +22,7 @@ import {
   SectionText,
 } from "../components/Styled";
 import { toast } from "react-toastify";
+import ReactTooltip from "react-tooltip";
 
 export const CreateRecipe: React.FC = () => {
   const [name, setName] = useState("");
@@ -33,6 +34,7 @@ export const CreateRecipe: React.FC = () => {
     <Page>
       <Section>
         <Content id="recipe">
+          <ReactTooltip />
           <SectionHeader>Create Recipe</SectionHeader>
           <SectionText>Fill out the form below to create a recipe.</SectionText>
           <CreateForm
@@ -56,13 +58,18 @@ export const CreateRecipe: React.FC = () => {
                   instructions,
                   ingredients,
                 }),
-              }).then((res) => {
-                if (res.status === 200) {
-                  res.json().then((recipe: Recipe) => {
-                    location.href = `/recipe/view/${recipe.id}`;
-                  });
-                }
-              });
+              })
+                .then((res) => {
+                  if (res.status === 200) {
+                    toast.success("Recipe successfully created.");
+                    res.json().then((recipe: Recipe) => {
+                      location.href = `/recipe/view/${recipe.id}`;
+                    });
+                  }
+                })
+                .catch((err) => {
+                  toast.error(err);
+                });
             }}
           >
             <InputGrid>
@@ -119,6 +126,7 @@ export const CreateRecipe: React.FC = () => {
                       }}
                     />
                     <IterableAction
+                      data-tip="Remove this ingredient"
                       onClick={() => {
                         if (!(ingredients.length <= 1)) {
                           setIngredients((old) => {
@@ -176,6 +184,7 @@ export const CreateRecipe: React.FC = () => {
                       }}
                     />
                     <IterableAction
+                      data-tip="Remove this instruction"
                       onClick={() => {
                         if (!(instructions.length <= 1)) {
                           setinstructions((old) => {

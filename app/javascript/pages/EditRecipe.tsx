@@ -22,6 +22,7 @@ import {
   SectionText,
 } from "../components/Styled";
 import { toast } from "react-toastify";
+import ReactTooltip from "react-tooltip";
 
 export const EditRecipe: React.FC = () => {
   const [name, setName] = useState("");
@@ -33,6 +34,7 @@ export const EditRecipe: React.FC = () => {
     <Page>
       <Section>
         <Content id="recipe">
+          <ReactTooltip />
           <SectionHeader>Edit Recipe</SectionHeader>
           <SectionText>Fill out the form below to create a recipe.</SectionText>
           <CreateForm
@@ -119,6 +121,7 @@ export const EditRecipe: React.FC = () => {
                       }}
                     />
                     <IterableAction
+                      data-tip="Remove this ingredient"
                       onClick={() => {
                         if (!(ingredients.length <= 1)) {
                           setIngredients((old) => {
@@ -176,6 +179,7 @@ export const EditRecipe: React.FC = () => {
                       }}
                     />
                     <IterableAction
+                      data-tip="Remove this instruction"
                       onClick={() => {
                         if (!(instructions.length <= 1)) {
                           setinstructions((old) => {
