@@ -1,4 +1,4 @@
-export interface IRecipe {
+export interface Recipe {
   id: number;
   name: string;
   ingredients: Array<string>;
@@ -8,6 +8,6 @@ export interface IRecipe {
   updated_at: string;
 }
 
-export interface IRouteParameter {
+export interface RouteParameter {
   id: string;
 }
