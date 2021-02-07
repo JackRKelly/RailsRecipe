@@ -137,7 +137,7 @@ export const CreateRecipe: React.FC = () => {
                             return array;
                           });
                         } else {
-                          toast.error("Must have 1 ingredient.");
+                          toast.error("Must have at least 1 ingredient.");
                         }
                       }}
                     >
@@ -195,7 +195,7 @@ export const CreateRecipe: React.FC = () => {
                             return array;
                           });
                         } else {
-                          toast.error("Must have 1 instruction.");
+                          toast.error("Must have at least 1 instruction.");
                         }
                       }}
                     >
