@@ -34,4 +34,9 @@ body {
     font-size: 16px;
   }
 }
+
+.Toastify__toast-container--top-right {
+  top: 3.5em;
+  right: 1em;
+}
 `;
