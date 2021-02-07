@@ -6,17 +6,18 @@ import { CreateRecipe } from "../pages/CreateRecipe";
 import { Home } from "../pages/Home";
 import { AllRecipes } from "../pages/AllRecipes";
 import { RecipeView } from "../pages/RecipeView";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { EditRecipe } from "../pages/EditRecipe";
 
 const App: React.FC = () => {
   return (
     <div className="rails-recipe">
       <GlobalStyle />
-      <Router>
-        <ToastContainer />
-        <Navigation />
+      <ToastContainer />
 
+      <Router>
+        <Navigation />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -29,6 +30,9 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/recipe/view/:id">
             <RecipeView />
+          </Route>
+          <Route exact path="/recipe/edit/:id">
+            <EditRecipe />
           </Route>
         </Switch>
       </Router>
