@@ -63,6 +63,11 @@ const FirstLink = styled(StyledLink)`
   margin-left: 0;
 `;
 
+const LastLink = styled(StyledLink)`
+  padding-right: 0;
+  margin-right: 0;
+`;
+
 export const Navigation = () => {
   return (
     <NavigationWrapper id="navigation">
@@ -82,7 +87,7 @@ export const Navigation = () => {
               <StyledLink to="/">Home</StyledLink>
             </LinkListItem>
             <LinkListItem>
-              <StyledLink to="/recipe">Recipes</StyledLink>
+              <LastLink to="/recipe">Recipes</LastLink>
             </LinkListItem>
           </LinkList>
         </Sublist>
