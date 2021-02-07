@@ -2,6 +2,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Recipe } from "../../models/recipe";
+import * as moment from "moment";
 import {
   Content,
   Page,
@@ -44,10 +45,8 @@ const RecipeDescription = styled.p`
   margin-top: 0;
 `;
 
-const RecipeHeaderDescription = styled.p`
-  color: var(--gray);
-  font-size: 1.5em;
-  text-align: center;
+const RecipeDescriptionNoMargin = styled(RecipeDescription)`
+  margin: 0;
 `;
 
 const RecipeHeaderLink = styled.a`
@@ -82,23 +81,29 @@ export const AllRecipes: React.FC = () => {
               creating a recipe
             </RecipeHeaderLink>
           </SectionText>
-          <RecipeCardWrapper>
-            {recipeList?.map((recipe, index) => (
-              <RecipeCard href={`/recipe/view/${recipe.id}`} key={index}>
-                <div className="recipe-card">
-                  <RecipeHeader>{recipe.name}</RecipeHeader>
-                  <RecipeDescription>
-                    {recipe.ingredients.length} Ingredient
-                    {recipe.ingredients.length > 1 ? "s" : ""},{" "}
-                    {recipe.instructions.length} Step
-                    {recipe.instructions.length > 1 ? "s" : ""}
-                  </RecipeDescription>
-
-                  <RecipeThumbnail src={recipe.image} />
-                </div>
-              </RecipeCard>
-            ))}
-          </RecipeCardWrapper>
+          {recipeList?.length === 0 ? (
+            <SectionText>No recipes found.</SectionText>
+          ) : (
+            <RecipeCardWrapper>
+              {recipeList?.map((recipe, index) => (
+                <RecipeCard href={`/recipe/view/${recipe.id}`} key={index}>
+                  <div className="recipe-card">
+                    <RecipeHeader>{recipe.name}</RecipeHeader>
+                    <RecipeDescriptionNoMargin>
+                      <b>{recipe.ingredients.length}</b> Ingredient
+                      {recipe.ingredients.length > 1 ? "s" : ""},{" "}
+                      <b>{recipe.instructions.length}</b> Step
+                      {recipe.instructions.length > 1 ? "s" : ""}
+                    </RecipeDescriptionNoMargin>
+                    <RecipeDescription>
+                      Posted {moment(recipe.created_at).fromNow()}
+                    </RecipeDescription>
+                    <RecipeThumbnail src={recipe.image} />
+                  </div>
+                </RecipeCard>
+              ))}
+            </RecipeCardWrapper>
+          )}
         </Content>
       </Section>
     </Page>

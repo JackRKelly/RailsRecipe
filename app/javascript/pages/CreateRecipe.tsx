@@ -11,6 +11,7 @@ import {
 
 import styled from "styled-components";
 import { breakpoint } from "../util";
+import { toast } from "react-toastify";
 
 const CreateForm = styled.form``;
 
@@ -198,7 +199,7 @@ export const CreateRecipe: React.FC = () => {
                             return array;
                           });
                         } else {
-                          alert("Must have 1 ingredient.");
+                          toast.error("Must have 1 ingredient.");
                         }
                       }}
                     >
@@ -255,7 +256,7 @@ export const CreateRecipe: React.FC = () => {
                             return array;
                           });
                         } else {
-                          alert("Must have 1 instruction.");
+                          toast.error("Must have 1 instruction.");
                         }
                       }}
                     >
