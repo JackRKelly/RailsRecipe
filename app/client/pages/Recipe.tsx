@@ -55,7 +55,7 @@ const RecipeHeaderLink = styled.a`
   color: var(--primary);
 `;
 
-const RecipeApp: React.FC = () => {
+export const AllRecipes: React.FC = () => {
   let [recipeList, setRecipeList] = useState<Array<Recipe>>();
 
   useEffect(() => {
@@ -104,5 +104,3 @@ const RecipeApp: React.FC = () => {
     </Page>
   );
 };
-
-export default RecipeApp;

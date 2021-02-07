@@ -11,7 +11,7 @@ const ImageBanner = styled.img`
   object-fit: cover;
 `;
 
-const RecipeView: React.FC = () => {
+export const RecipeView: React.FC = () => {
   let [recipe, setRecipe] = useState<Recipe>();
 
   let { id } = useParams<RouteParameter>();
@@ -56,5 +56,3 @@ const RecipeView: React.FC = () => {
     </Page>
   );
 };
-
-export default RecipeView;

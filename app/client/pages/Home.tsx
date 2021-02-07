@@ -7,7 +7,7 @@ import {
   SectionText,
 } from "../components/Styled";
 
-const Home: React.FC = () => {
+export const Home: React.FC = () => {
   return (
     <Page>
       <Section>
@@ -21,5 +21,3 @@ const Home: React.FC = () => {
     </Page>
   );
 };
-
-export default Home;

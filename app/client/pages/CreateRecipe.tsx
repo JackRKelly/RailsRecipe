@@ -92,7 +92,7 @@ const CreateButton = styled(IterableButton)`
   margin-top: 0.5em;
 `;
 
-const RecipeView: React.FC = () => {
+export const CreateRecipe: React.FC = () => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [instructions, setinstructions] = useState([""]);
@@ -279,5 +279,3 @@ const RecipeView: React.FC = () => {
     </Page>
   );
 };
-
-export default RecipeView;
