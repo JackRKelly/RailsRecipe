@@ -87,7 +87,7 @@ export const Navigation = () => {
               <StyledLink to="/">Home</StyledLink>
             </LinkListItem>
             <LinkListItem>
-              <LastLink to="/recipe">Recipes</LastLink>
+              <LastLink to="/recipes">Recipes</LastLink>
             </LinkListItem>
           </LinkList>
         </Sublist>

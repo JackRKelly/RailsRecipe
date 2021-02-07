@@ -22,7 +22,7 @@ const App: React.FC = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/recipe">
+          <Route exact path="/recipes">
             <AllRecipes />
           </Route>
           <Route exact path="/recipe/create">
