@@ -1,11 +1,18 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import { Recipe, RouteParameter } from "../../models/recipe";
-import { Content, Page, Section, SectionHeader } from "../components/Styled";
+import {
+  Content,
+  Page,
+  Section,
+  SectionHeader,
+  SectionText,
+} from "../components/Styled";
 import { useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { toast } from "react-toastify";
 import ReactTooltip from "react-tooltip";
+import * as moment from "moment";
 
 const ImageBanner = styled.img`
   width: 100%;
@@ -53,6 +60,14 @@ const CopyToClipboard = styled(ActionBase)`
   padding-left: 15px;
 `;
 const DeleteRecipe = styled(ActionBase)``;
+
+const IngredientListItem = styled.li`
+  margin-bottom: 5px;
+`;
+
+const InstructionListItem = styled.li`
+  margin-bottom: 10px;
+`;
 
 export const RecipeView: React.FC = () => {
   let [recipe, setRecipe] = useState<Recipe>();
@@ -132,17 +147,22 @@ export const RecipeView: React.FC = () => {
                   </StyledSVG>
                 </DeleteRecipe>
               </SectionHeader>
+              <SectionText>
+                Posted {moment(recipe.created_at).fromNow()}
+              </SectionText>
               <div className="recipe">
-                <p>Ingredients</p>
+                <p>Ingredients:</p>
                 <ul>
                   {recipe.ingredients.map((item, index) => (
-                    <li key={index}>{item}</li>
+                    <IngredientListItem key={index}>{item}</IngredientListItem>
                   ))}
                 </ul>
-                <p>instructions</p>
+                <p>Instructions:</p>
                 <ol>
                   {recipe.instructions.map((step, index) => (
-                    <li key={index}>{step}</li>
+                    <InstructionListItem key={index}>
+                      {step}
+                    </InstructionListItem>
                   ))}
                 </ol>
               </div>
