@@ -64,11 +64,25 @@ export const Input = styled.input`
   width: 100%;
   border-radius: 4px;
   font-size: 1em;
+  font-weight: normal;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.16);
   padding: 0.5em;
 `;
 
 export const IterableInput = styled(Input)``;
+
+export const IterableTextarea = styled.textarea`
+  resize: vertical;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  width: 100%;
+  border-radius: 4px;
+  font-weight: normal;
+  font-size: 1em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.16);
+  padding: 0.5em;
+  min-height: 40px;
+`;
 
 export const IterableLabel = styled(Label)`
   margin-bottom: 0;
@@ -80,10 +94,15 @@ export const IterableAction = styled.div`
   opacity: 0;
   pointer-events: none;
   z-index: 5;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 50%;
+  transform: translateY(50%);
   transition: all ease-in-out 200ms;
   cursor: pointer;
+`;
+
+export const IterableActionTextarea = styled(IterableAction)`
+  bottom: 15px;
+  transform: none;
 `;
 
 export const IterableButton = styled.button`
